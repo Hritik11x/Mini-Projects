@@ -1,13 +1,34 @@
+@keyframes slideInDown {
+    0% {
+        opacity:0;
+        transform:translateY(-30px) rotateX(0deg) translateZ(0);
+    }
+    100% {
+        opacity:1;
+        transform:translateY(0) rotateX(0deg) translateZ(5px);
+    }
+}
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow:0 0 20px rgba(76, 175, 80, 0.3),
+                   inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    50% {
+        box-shadow:0 0 40px rgba(5, 226, 12, 0.947),
+                   inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+}
 body {
   margin: 0;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at center, #1e1e1e, #0a0a0a); /* Added depth to bg */
+  background: radial-gradient(circle at center, #1e1e1e, #0a0a0a); 
   color: white;
   font-family: 'Segoe UI', sans-serif;
   perspective: 1000px; 
+  
 }
 
 .container {
@@ -18,7 +39,10 @@ body {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
- 
+    transform: translateZ(20px);
+    transition:transform 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    animation:float 4s ease-in-out infinite;
+    
 }
 
 .controls {
@@ -76,7 +100,7 @@ button:active {
 }
 
 .color:hover {
-  transform: rotateY(15deg) rotateX(10deg) translateZ(30px);
+  transform: translateZ(30px);
   box-shadow: -15px 20px 30px rgba(0,0,0,0.5);
 }
 
